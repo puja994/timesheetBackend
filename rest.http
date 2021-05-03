@@ -1,2 +1,14 @@
 ### root access
 GET  http://localhost:8000
+
+
+
+### creating a user
+
+POST http://localhost:8000/api/v1/user
+Content-Type: application/json
+
+{
+  "email": "puj@com",
+  "password": "123"
+}

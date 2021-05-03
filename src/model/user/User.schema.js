@@ -18,11 +18,11 @@ const UserSchema = mongoose.Schema({
 },
 {
     timestamp: true,
-}
+},
 )
 
-const UserSchema = mongoose.model("User", UserSchema);
+const UserSchemas = mongoose.model("User", UserSchema);
 
-export default UserSchema;
+export default UserSchemas;
 
   

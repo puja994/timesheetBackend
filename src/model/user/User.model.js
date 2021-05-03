@@ -1,11 +1,15 @@
-import UserSchema from './User.schema'
+import UserSchemas from './User.schema.js'
 
-export const insertUser = (userObj) => {
+export const createUser = userObj => {
 	return new Promise((resolve, reject) => {
-	  UserSchema(userObj)
-		.save()
-		.then((data) => resolve(data))
-		.catch((error) => reject(error));
+		try {
+			UserSchemas(userObj)
+				.save()
+				.then(data => resolve(data))
+				.catch(error => reject(error));
+		} catch (error) {
+			reject(error);
+		}
 	});
-  };
+};
   

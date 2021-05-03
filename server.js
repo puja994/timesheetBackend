@@ -20,7 +20,7 @@ import mongoClient from "./src/config/db.js";
 mongoClient();
 
 //loading the routers
-import userRouter from "../src/routers/user.router.js";
+import userRouter from "./src/routers/user.router.js";
 
 
 //using apis
