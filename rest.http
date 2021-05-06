@@ -1,14 +1,46 @@
+
 ### root access
 GET  http://localhost:8000
 
+### Login api endpoing
+POST  http://localhost:8000/api/v1/login
+Content-Type: application/json
+
+{
+  "email": "puja@com",
+  "password": "123"
+}
 
 
-### creating a user
 
+
+###user routers
+### get user by id
+GET  http://localhost:8000/api/v1/user
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAYy5jb20iLCJpYXQiOjE2MTk4Mzk5OTksImV4cCI6MTYxOTg0MDg5OX0.jO4-IgTk7gVsabnEsX2H9dI5O9vlo_b1CnScPGusDMo
+
+### Create a user
 POST http://localhost:8000/api/v1/user
 Content-Type: application/json
 
 {
-  "email": "puj@com",
-  "password": "123"
+  "fName": "h",
+  "lName": "l",
+  "email": "puja@com",
+  "password": "123",
+  "role": "user"
 }
+
+
+### logout api endpoing
+POST http://localhost:8000/api/v1/user/logout
+Content-Type: application/json
+
+{"_id": "6084f1fea2d7e03e8465907e" }
+
+
+
+### token endpoint
+# Request fresh accessJWt
+GET  http://localhost:8000/api/v1/token
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAYy5jb20iLCJpYXQiOjE2MTk0ODI3NDAsImV4cCI6MTYyMjA3NDc0MH0.Ug2GZHZXlcP1zxjUcCA_Hkea047-Yzb1R_bCKnacABY
