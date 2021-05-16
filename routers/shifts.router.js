@@ -8,15 +8,14 @@ router.all("*", (req, res, next) => {
 });
 
 router.post("/", async (req,res)=>{
-    const {name, datetime} = req.body
+    // const {name, datetime} = req.body
     try{
-        const addtime = {
-            ...req.body
-        }
-        const result = await saveTime({
-            ...addtime
-
-        })
+        // const addtime = {
+        //     ...req.body
+        // }
+       
+        const result = await saveTime(req.body)
+        console.log(result)
         if (result._id) {
             return res.json({
                 status: "success",

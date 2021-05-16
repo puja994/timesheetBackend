@@ -9,12 +9,9 @@ router.all("*", async(req,res, next)=>{
 
 router.post("/", async(req,res)=>{
     try{
-        const {name,email,date} = req.body
-        const newEmployee = {
-            ...req.body,
-        }
-        const result = await addEmployee(newEmployee)
-        if(result?._id){
+      
+        const result = await addEmployee(req.body)
+        if(result._id){
             return res.json({status:"success", message: "employee added", result})
         }
         res.json({ status: "error", message: "Invalid employee details" });

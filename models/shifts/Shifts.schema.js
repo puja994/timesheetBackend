@@ -6,7 +6,7 @@ const ShiftSchema = mongoose.Schema({
         require: true,
         default: "",
     },
-    date: {
+    datetime: {
         type: String,
         require: true,
         default: ""

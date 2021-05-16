@@ -13,11 +13,7 @@ const EmployeeSchema = mongoose.Schema({
         require: true,
         default: "",
     },
-    addedAt: {
-        type: Date,
-        require: true,
-        default: Date.now(),
-    },
+
 },
 {
     timestamp: true,
