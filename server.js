@@ -30,10 +30,14 @@ import { userAuthorization } from "./middlewares/authorization.middleware.js";
 import loginRouter from "./routers/login.router.js";
 import userRouter from "./routers/user.router.js";
 import tokenRouter from "./routers/token.router.js";
+import employeeRouter from './routers/employee.router.js'
+import shiftRouter from './routers/shifts.router.js'
 
 app.use("/api/v1/login", loginRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/token", tokenRouter);
+app.use("/api/v1/employee", employeeRouter);
+app.use("/api/v1/shifts", shiftRouter)
 
 app.get("/", (req, res) => {
 	res.send("Hello World");

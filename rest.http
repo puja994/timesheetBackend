@@ -2,7 +2,7 @@
 ### root access
 GET  http://localhost:8000
 
-### Login api endpoing
+### Login api endpoint
 POST  http://localhost:8000/api/v1/login
 Content-Type: application/json
 
@@ -11,7 +11,19 @@ Content-Type: application/json
   "password": "123"
 }
 
+### add employee
+POST http://localhost:8000/api/v1/employee
+Content-Type: application/json
 
+{
+  "email": "puja@com",
+  "password": "123"
+  
+}
+
+### add shifts
+
+POST http://localhost:8000/api/v1/shifts
 
 
 ###user routers
@@ -32,7 +44,7 @@ Content-Type: application/json
 }
 
 
-### logout api endpoing
+### logout api endpoint
 POST http://localhost:8000/api/v1/user/logout
 Content-Type: application/json
 
@@ -44,3 +56,13 @@ Content-Type: application/json
 # Request fresh accessJWt
 GET  http://localhost:8000/api/v1/token
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJAYy5jb20iLCJpYXQiOjE2MTk0ODI3NDAsImV4cCI6MTYyMjA3NDc0MH0.Ug2GZHZXlcP1zxjUcCA_Hkea047-Yzb1R_bCKnacABY
+
+### add employee
+POST http://localhost:8000/api/v1/employee
+Content-Type: application/json
+
+{
+  "name" : "puja",
+  "email": "puja@com",
+   
+}
