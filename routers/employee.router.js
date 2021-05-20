@@ -7,6 +7,21 @@ router.all("*", async(req,res, next)=>{
     next()
 })
 
+router.get("/", async (req,res)=>{
+    try {
+		const result = await addEmployee();
+		res.json({
+			status: "success",
+			message: "Fetching success",
+			result,
+		});
+	} catch (error) {
+		console.log(error);
+		throw new Error(error.message);
+	}
+})
+
+
 router.post("/", async(req,res)=>{
     try{
       
@@ -14,7 +29,8 @@ router.post("/", async(req,res)=>{
         if(result._id){
             return res.json({status:"success", message: "employee added", result})
         }
-        res.json({ status: "error", message: "Invalid employee details" });
+        // res.json({ status: "error", message: "Invalid employee details" });
+        // console.log(result)
 
     }catch(error){
         console.log(error)

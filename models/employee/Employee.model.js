@@ -10,6 +10,7 @@ export const addEmployee = obj =>{
 
         }catch(error){
             reject(error)
+            console.log(error)
         }
     })
 }

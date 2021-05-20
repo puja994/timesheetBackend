@@ -17,3 +17,15 @@ export const saveTime = obj => {
         }
     })
 }
+
+export const getShifts = () => {
+	return new Promise(async (resolve, reject) => {
+		try {
+			const result = await ShiftsSchema.find();
+
+			resolve(result);
+		} catch (error) {
+			reject(error);
+		}
+	});
+};
