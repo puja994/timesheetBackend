@@ -3,7 +3,7 @@ const router = express.Router();
 
 import {saveTime} from '../models/shifts/Shifts.model.js'
 
-import {getShifts} from '../models/shifts/Shifts.model.js'
+import {getShifts, deleteShifts} from '../models/shifts/Shifts.model.js'
 
 router.all("*", (req, res, next) => {
 	next();
@@ -50,4 +50,34 @@ router.post("/", async (req,res)=>{
 
     }
 })
+
+router.delete("/", async (req, res) => {
+	try {
+		if (!req.body) {
+			return res.json({
+				status: "error",
+				message: "Unable to add the shift, Please try again later",
+			});
+		}
+
+		const result = await deleteShifts(req.body);
+		console.log(result);
+
+		if (result?._id) {
+			return res.json({
+				status: "success",
+				message: "The shift has been deleted.",
+				result,
+			});
+		}
+
+		res.json({
+			status: "error",
+			message: "Unable to delete the product, Please try again later",
+		});
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
+});
 export default router

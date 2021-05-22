@@ -28,4 +28,16 @@ export const getShifts = () => {
 			reject(error);
 		}
 	});
+}
+
+export const deleteShifts = _id => {
+	return new Promise(async (resolve, reject) => {
+		try {
+			const result = await ShiftsSchema.findByIdAndDelete(_id);
+
+			resolve(result);
+		} catch (error) {
+			reject(error);
+		}
+	});
 };

@@ -8,7 +8,7 @@ const EmployeeSchema = mongoose.Schema({
         require: true,
         default: "",
     },
-    lName: {
+    name: {
         type: String,
         require: true,
         default: "",

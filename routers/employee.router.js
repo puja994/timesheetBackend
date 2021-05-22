@@ -2,6 +2,7 @@ import express from 'express'
 const router = express.Router()
 
 import {addEmployee} from '../models/employee/Employee.model.js'
+import {getEmployee, deleteEmployees, updateEmployee} from '../models/employee/Employee.model.js'
 
 router.all("*", async(req,res, next)=>{
     next()
@@ -9,7 +10,7 @@ router.all("*", async(req,res, next)=>{
 
 router.get("/", async (req,res)=>{
     try {
-		const result = await addEmployee();
+		const result = await getEmployee();
 		res.json({
 			status: "success",
 			message: "Fetching success",
@@ -40,4 +41,58 @@ router.post("/", async(req,res)=>{
         })
     }
 })
+
+
+router.delete("/", async (req, res) => {
+	try {
+		if (!req.body) {
+			return res.json({
+				status: "error",
+				message: "Unable to add the employee, Please try again later",
+			});
+		}
+
+		const result = await deleteEmployees(req.body);
+		console.log(result);
+
+		if (result?._id) {
+			return res.json({
+				status: "success",
+				message: "employee has been deleted.",
+				result,
+			});
+		}
+
+		res.json({
+			status: "error",
+			message: "Unable to delete the employee, Please try again later",
+		});
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
+})
+
+router.put("/", async (req, res) => {
+	console.log(req.body);
+	
+	try {
+		const result = await updateEmployee(req.body);
+		if (result._id) {
+			return res.json({
+				status: "success",
+				message: "Employee has been updated!",
+				result,
+			});
+		}
+		res.json({
+			status: "error",
+			message: "Error! Unable to update the Employee, Please try again later",
+		});
+	} catch (error) {
+		console.log(error);
+		throw new Error(error.message);
+	}
+})
+
 export default router
