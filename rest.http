@@ -25,6 +25,33 @@ Content-Type: application/json
 ### add shifts
 
 POST http://localhost:8000/api/v1/shifts
+Content-Type: application/json
+
+{
+  "date": "10/10/2222",
+  "shift":[
+    {
+      "name": "Puja",
+      "eId": "sdf23ererwfsd",
+      "starTime": "12:10",
+      "endTime": "20:10",
+    },
+    {
+      "name": "Rita",
+      "eId": "sdf23ererwfsd",
+      "starTime": "10:10",
+      "endTime": "20:10",
+    },
+    {
+      "name": "Sita",
+      "eId": "sdf23ererwfsd",
+      "starTime": "13:10",
+      "endTime": "20:10",
+    },
+  ]
+ 
+  
+}
 
 
 ###user routers
