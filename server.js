@@ -32,12 +32,14 @@ import userRouter from "./routers/user.router.js";
 import tokenRouter from "./routers/token.router.js";
 import employeeRouter from './routers/employee.router.js'
 import shiftRouter from './routers/shifts.router.js'
+import availabilityRouter from './routers/availability.router.js'
 
 app.use("/api/v1/login", loginRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/token", tokenRouter);
 app.use("/api/v1/employee", employeeRouter);
 app.use("/api/v1/shifts", shiftRouter)
+app.use("/api/v1/availability", availabilityRouter)
 
 app.get("/", (req, res) => {
 	res.send("Hello World");

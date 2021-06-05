@@ -94,3 +94,15 @@ Content-Type: application/json
   "email": "puja@com",
    
 }
+
+### availability
+POST http://localhost:8000/api/v1/availability
+Content-Type: application/json
+
+{
+  "name": "puja",
+  "date": "10/10/2222",
+  "time": "12:00"
+
+
+}

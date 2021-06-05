@@ -1,10 +1,9 @@
-import ShiftsSchema from './Shifts.schema.js'
+import AvailableSchema from './Availability.schema.js'
 
-export const saveTime = obj => {
-	console.log(obj)
+export const saveAvailability = obj => {
     return new Promise((resolve, reject)=>{
         try{
-            ShiftsSchema(obj)
+            AvailableSchema(obj)
             .save()
             .then(data => resolve(data))
             .catch(error => {
@@ -37,10 +36,10 @@ export const saveTime = obj => {
 // 	});
 // }
 
-export const getShifts = () => {
+export const getAvailability = () => {
 	return new Promise(async (resolve, reject) => {
 		try {
-			const result = await ShiftsSchema.find();
+			const result = await AvailableSchema.find();
 
 			resolve(result);
 		} catch (error) {
@@ -50,10 +49,10 @@ export const getShifts = () => {
 }
 
 
-export const deleteShifts = _id => {
+export const deleteAvailability = _id => {
 	return new Promise(async (resolve, reject) => {
 		try {
-			const result = await ShiftsSchema.findByIdAndDelete(_id);
+			const result = await AvailableSchema.findByIdAndDelete(_id);
 
 			resolve(result);
 		} catch (error) {

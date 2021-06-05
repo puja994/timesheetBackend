@@ -1,9 +1,8 @@
 import express from "express";
 const router = express.Router();
 
-import {saveTime} from '../models/shifts/Shifts.model.js'
-
-import {getShifts, deleteShifts} from '../models/shifts/Shifts.model.js'
+import {saveAvailability,getAvailability,deleteAvailability
+} from '../models/availability/Availability.model.js'
 
 router.all("*", (req, res, next) => {
 	next();
@@ -11,7 +10,7 @@ router.all("*", (req, res, next) => {
 
 router.get("/", async (req,res)=>{
     try {
-		const result = await getShifts();
+		const result = await getAvailability();
 		res.json({
 			status: "success",
 			message: "Fetching success",
@@ -24,16 +23,18 @@ router.get("/", async (req,res)=>{
 })
 
 router.post("/", async (req,res)=>{
-    
+    // const {name, datetime} = req.body
     try{
-        
+        // const addtime = {
+        //     ...req.body
+        // }
        
-        const result = await saveTime(req.body)
+        const result = await saveAvailability(req.body)
         console.log(result)
         if (result._id) {
             return res.json({
                 status: "success",
-                message: "Shift has been added!",
+                message: "availability has been added!",
                 result,
             });
         }
@@ -54,11 +55,11 @@ router.delete("/", async (req, res) => {
 		if (!req.body) {
 			return res.json({
 				status: "error",
-				message: "Unable to add the shift, Please try again later",
+				message: "Unable to add the availability, Please try again later",
 			});
 		}
 
-		const result = await deleteShifts(req.body);
+		const result = await deleteAvailability(req.body);
 		console.log(result);
 
 		if (result?._id) {
