@@ -23,11 +23,7 @@ router.get("/", async (req,res)=>{
 })
 
 router.post("/", async (req,res)=>{
-    // const {name, datetime} = req.body
     try{
-        // const addtime = {
-        //     ...req.body
-        // }
        
         const result = await saveAvailability(req.body)
         console.log(result)

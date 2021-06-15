@@ -7,8 +7,8 @@ POST  http://localhost:8000/api/v1/login
 Content-Type: application/json
 
 {
-  "email": "puja@com",
-  "password": "123"
+  "email": "sheerazmemon@gmail.com",
+  "password": "12341"
 }
 
 ### add employee
@@ -64,10 +64,10 @@ POST http://localhost:8000/api/v1/user
 Content-Type: application/json
 
 {
-  "fName": "h",
-  "lName": "l",
-  "email": "puja@com",
-  "password": "123",
+  "fName": "sheeraz",
+  "lName": "memon",
+  "email": "sheeraz@memon.com",
+  "password": "12345",
   "role": "user"
 }
 

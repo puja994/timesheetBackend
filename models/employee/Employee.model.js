@@ -31,17 +31,18 @@ export const getEmployee = () => {
 	});
 }
 
-export const updateEmployee = ({ _id, ...empData }) => {
+export const updateEmployee = ({ _id, editEmployee }) => {
 	return new Promise(async (resolve, reject) => {
 		try {
+			console.log(_id, editEmployee)
 			const result = await employeesSchema.findByIdAndUpdate(
 				{ _id },
-				{ $set: empData },
+				{ $set: editEmployee },
 				{
 					new: true,
 				}
 			);
-
+console.log(result, "frmmodel")
 			resolve(result);
 		} catch (error) {
 			reject(error);

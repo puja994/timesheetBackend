@@ -74,7 +74,7 @@ router.delete("/", async (req, res) => {
 })
 
 router.put("/", async (req, res) => {
-	console.log(req.body);
+	console.log(req.body,"frmrouter");
 	
 	try {
 		const result = await updateEmployee(req.body);

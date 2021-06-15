@@ -19,6 +19,17 @@ export const saveTime = obj => {
     })
 }
 
+export const getShiftById = _id => {
+	return new Promise(async (resolve, reject) => {
+		try {
+			const result = await ShiftsSchema.findById(_id);
+
+			resolve(result);
+		} catch (error) {
+			reject(error);
+		}
+	});
+};
 // export const getShifts = () => {
 // 	return new Promise(async (resolve, reject) => {
 // 		try {
